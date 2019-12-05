@@ -1,0 +1,3 @@
+*.css linguist-language=html
+*.java linguist-language=java
+*.html linguist-language=html

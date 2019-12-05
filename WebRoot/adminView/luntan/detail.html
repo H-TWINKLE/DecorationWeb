@@ -1,0 +1,43 @@
+ #@_layout()
+ 
+  #define _body()
+
+<link rel="stylesheet" href="#(base)/assets/css/swipebox.css">
+
+<div class="gallery">
+	<div class="container">
+		<h3>混搭风格</h3>
+		<div class="top-gallery">
+			<small>Mixing style</small>
+			<p>欧式混搭美式，家里的装修所呈现出的风格不能太过于复杂和繁琐，一般来说，超过三种以上的风格调和在一起，对整体和谐是一大挑战，更何况一些风格本身就是不相容的。</p>
+		</div>
+		<div class="col-md-3 gallery-grid gallery1">
+			<a href="#(base)/assets/images/hunda1.jpg" class="swipebox"> <img
+				src="#(base)/assets/images/hunda1.jpg" class="img-responsive" alt="/">
+			</a>
+		</div>
+		<div class="col-md-3 gallery-grid gallery1">
+			<a href="#(base)/assets/images/hunda2.jpg" class="swipebox"> <img
+				src="#(base)/assets/images/hunda2.jpg" class="img-responsive" alt="/">
+			</a>
+		</div>
+		<div class="col-md-3 gallery-grid gallery1">
+			<a href="#(base)/assets/images/hunda3.jpg" class="swipebox"> <img
+				src="#(base)/assets/images/hunda3.jpg" class="img-responsive" alt="/">
+			</a>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<script src="#(base)/assets/js/jquery.swipebox.min.js"></script>
+<script type="text/javascript">
+	jQuery(function($) {
+		$(".swipebox").swipebox();
+	});
+</script>
+</div>
+</div>
+
+#end

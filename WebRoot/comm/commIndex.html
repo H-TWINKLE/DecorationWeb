@@ -1,0 +1,143 @@
+ #define _main()
+
+<script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } 
+
+</script>
+
+<div class="#if(index??) banner #else banner1 #end">
+	<div class="container">
+		<div class="header-nav">
+			<nav class="navbar navbar-default">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<div class="logo">
+						<a class="navbar-brand" href="#(base)/index">易·家 <span>Yi
+								Decoration</span>
+						</a>
+						<ul class="nav navbar-nav" style="margin-left: 0px;">
+							#if(!session.my_user??)
+							<li><a href="#(base)/login">登录</a></li>
+							<li style="margin-left: -10px;"><a href="#(base)/register">注册</a>
+							</li> #else
+							#if(session.my_user.user_plate??==2)
+							<li><a href="#(base)/admin">管理平台</a></li>							
+							#end
+							<li><a href="#(base)/myinfo">个人中心</a></li>	
+							<li><a style="text-decoration: none;"
+								href="#(base)/logOut"> <font
+									style="font-size: 16px">欢迎，#(session.my_user.user_account??)&nbsp;&nbsp;&nbsp;</font>退出
+							</a></li> #end
+						</ul>
+					</div>
+				</div>
+
+				<div class="banner_info">
+					<div class="col-md-3 col-xs-2">
+						<div id="fh5co-logo">
+							<font style="font-size: 8px"> </font>
+						</div>
+					</div>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse nav-wil"
+					id="bs-example-navbar-collapse-1">
+
+					<ul class="nav navbar-nav" style="margin-left: -250px;" id="head-menu">
+
+						<li><a href="#(base)/index">首页</a></li>
+
+						<li><a href="#(base)/jiaju">家居</a></li>
+
+
+						<li><a href="#(base)/jiancai">建材</a></li>
+						<li><a href="#(base)/fengge">风格</a></li>
+						<li><a href="#(base)/luntan">论坛</a></li>
+						<li><a href="#(base)/lianxi">联系</a></li>
+					</ul>
+					<div class="search" style="white-space: nowrap;">
+						<form action="#(base)/search" method="post">
+							<input style="width: 200px;" type="text" name="what" placeholder="搜索">
+							<button type="submit" style="display: none;" id="search_what"></button>	
+							<img src="#(base)/assets/images/search.png" width="20px;"
+								id="search_pic" />
+
+						</form>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+        #if(index??)
+		#@_banner()
+		#end
+
+	</div>
+</div>
+<!-- //banner -->
+
+#@_body()
+
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-row">
+			<div class="col-md-4 footer-grids">
+				<h4>
+					<a href="#(base)/index">易·家</a>
+				</h4>
+				<p>不负好时光</p>
+			</div>
+			<div class="col-md-3 footer-grids">
+				<h3>Navigation</h3>
+				<ul>
+					<li class="active"><a href="#(base)/index">首页</a></li>
+					<li><a href="#(base)/jiaju">家居</a></li>
+				</ul>
+			</div>
+			<div class="col-md-2 footer-grids">
+				<h3>Support</h3>
+				<ul>
+					<li><a href="#(base)/fengge">风格</a></li>
+					<li><a href="#(base)/jiancai">建材</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 footer-grids">
+				<h3>Service</h3>
+				<ul>
+					<li><a href="#(base)/luntan">论坛</a></li>
+					<li><a href="#(base)/lianxi">联系</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<div class="footer-bottom">
+	<div class="container">
+		<p>@2019.版权归创作团队所有</p>
+	</div>
+</div>
+
+<script>
+
+$(function() {
+
+	$("#search_pic").click(function(event) {
+		$("#search_what").click();
+	});
+});
+</script>
+
+
+
+#end

@@ -1,0 +1,134 @@
+ #@_layout() 
+ 
+ #define _banner()
+<div class="banner-info">
+	<h1>人生不止眼前的苟且.</h1>
+	<p>愿你能朝九晚五，也有诗和远方.</p>
+
+</div>
+#end
+ 
+ #define _body()
+<!-- banner-bottom -->
+<div class="banner-bottom">
+	<div class="container">
+		<h3 class="title" style="margin-bottom: 30px;">风格预览</h3>
+		<div class="banner-bottom-grids">
+		
+			 #for(li:pengge_list??)
+			<div class="col-md-3 banner-bottom-grid">
+				<img src="#('http'.contains(li.firstPic??)?li.firstPic??:base+li.firstPic??)"  style="width: 300px;height: 200px;"
+					class="img-responsive" />
+				<div class="banner-bottom-grid-info">
+					<div class="col-xs-4 banner-bottom-grid-infol">
+						<p>.0#(for.count)</p>
+					</div>
+					<div class="col-xs-8 banner-bottom-grid-infor">
+						<h3 style="display:inline-block;overflow: hidden;height: 90px">#(li.fengge_title??)</h3>
+					</div>
+					<div class="clearfix"></div>
+					<p class="vel" style="display:inline-block;overflow: hidden;height:150px">
+						<br />#(li.fengge_auto??)
+					</p>
+					<div class="more m1">
+						<a href="#(base)/fengge/detail?id=#(li.fengge_id??)">详情信息</a>
+					</div>
+				</div>
+			</div>
+			#end
+									
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!-- testimonials -->
+<div class="testimonials">
+	<div class="container">
+		<h3>设计团队</h3>
+		<div class="testimonials-grids">
+			<ul id="flexiselDemo1">
+				<li>
+					<div class="testimonials-grid">
+						<div class="col-xs-5 testimonials-grid-left">
+							<img src="#(base)/assets/images/6.jpg" alt=" "
+								class="img-responsive" />
+						</div>
+						<div class="col-xs-7 testimonials-grid-right">
+							<div class="rating">
+								<span>Andrew Williums</span>
+							</div>
+							<p>
+								从业经历：2005年至今<span>擅长风格</span><span>现代、后现代、地中海、欧式、美式等。</span>
+							</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</li>
+				<li>
+					<div class="testimonials-grid">
+						<div class="col-xs-5 testimonials-grid-left">
+							<img src="#(base)/assets/images/7.jpg" alt=" "
+								class="img-responsive" />
+						</div>
+						<div class="col-xs-7 testimonials-grid-right">
+							<div class="rating">
+								<span>James</span>
+							</div>
+							<p>
+								从业经历：2010年至今<span>擅长风格</span><span>港式、现代、新古典、欧式、地中海、田园等</span>
+							</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</li>
+				<li>
+					<div class="testimonials-grid">
+						<div class="col-xs-5 testimonials-grid-left">
+							<img src="#(base)/assets/images/8.jpg" alt=" "
+								class="img-responsive" />
+						</div>
+						<div class="col-xs-7 testimonials-grid-right">
+							<div class="rating">
+								<span>Micheal France</span>
+							</div>
+							<p>
+								从业经历：2013 年至今<span>擅长风格</span><span>中式、法式、工业、现代、美式、轻奢等</span>
+							</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</li>
+			</ul>
+			<script type="text/javascript" src="#(base)/assets/js/jquery.flexisel.js"></script>
+			<script type="text/javascript">
+				$(window).load(function() {
+					$("#flexiselDemo1").flexisel({
+						visibleItems : 3,
+						animationSpeed : 1000,
+						autoPlay : true,
+						autoPlaySpeed : 3000,
+						pauseOnHover : true,
+						enableResponsiveBreakpoints : true,
+						responsiveBreakpoints : {
+							portrait : {
+								changePoint : 480,
+								visibleItems : 1
+							},
+							landscape : {
+								changePoint : 640,
+								visibleItems : 2
+							},
+							tablet : {
+								changePoint : 768,
+								visibleItems : 2
+							}
+						}
+					});
+
+				});
+			</script>
+		</div>
+	</div>
+</div>
+#end

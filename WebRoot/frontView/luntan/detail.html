@@ -1,0 +1,66 @@
+ #@_layout() #define _body()
+
+<div class="single">
+	<div class="container">
+		<div class="blog-pag page">
+			<div class="blog-page-grids">
+				<div class="blog-page-grid">
+					<h3>#(post.post_title??)</h3>
+					<p>
+						#date(post.post_date??)
+					</p>
+				</div>
+				<div class="blog-page-grid1">
+					<p>
+						<a><span class="glyphicon glyphicon-comment"
+							aria-hidden="true"></span>共计：#(post.commentSize??) 条评论</a>
+					</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="blog-page-grids-bottom">
+				<!-- <div class="blog-page-grids-bot">
+					<img src="#(base)/assets/images/banner1.jpg" alt=" " class="img-responsive" />
+				</div> -->
+				<div class="blog-page-grids-bot1">
+					<p>#(post.post_content??).</p>
+					
+				</div>
+			</div>
+		</div>
+		<div class="com">
+			<h3>评论</h3>
+			<ul class="media-list" style="width: 100%">
+			   
+			    #for(ls:post.comment??)
+			    <hr>
+				<li class="media">
+					<div class="media-left">
+						<a href="#"> <img class="media-object img-responsive" 
+						style="width:70px; height:70px; border-radius:100%; overflow:hidden;"
+							src="#(base)#(ls.user_pic??)" alt="" />
+						</a>
+					</div>					
+					<div class="media-body">
+						<h4 class="media-heading">#(ls.user_account??)</h4>
+						#(ls.comment_content??) <a >#date(ls.comment_date??)</a>
+					</div>
+				</li>
+				#end
+				
+				
+			</ul>
+		</div>
+		<div class="in dfg">
+			<h3>新增评论</h3>
+			<form method="post" action="#(base)/luntan/addcommment">
+				<input hidden="hidden" value="#(post.post_id??)" name="id">
+				<textarea placeholder="请填写内容" required=" " name="content"></textarea>
+				<input type="submit" value="评论">
+				<div class="clearfix"></div>
+			</form>
+		</div>
+	</div>
+</div>
+
+#end

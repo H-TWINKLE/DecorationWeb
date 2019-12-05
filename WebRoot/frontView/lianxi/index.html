@@ -1,0 +1,56 @@
+ #@_layout() #define _body()
+<div class="contact">
+	<div class="container">
+		<h3>和我们联系</h3>
+		<div class="contact-us1-bottom">
+			<form action="#(base)/lianxi/add" method="post">
+			
+				<input type="text" name="c.contact_title" onfocus="this.value = '';"
+					onblur="if (this.value == '') {this.value = '标题';}" required="">
+				
+				<textarea type="text" onfocus="this.value = '';" name="c.contact_content"
+					onblur="if (this.value == '') {this.value = '请填写内容';}"
+					required=""></textarea>
+				<input type="submit" value="提交">
+			</form>
+			<div class="home-radio-clock">
+				<ul>
+					<li><i class="glyphicon glyphicon-home" aria-hidden="true"></i>地址</li>
+					<li><i class="glyphicon glyphicon-bullhorn" aria-hidden="true"></i>联系方式</li>
+					<li><i class="glyphicon glyphicon-time" aria-hidden="true"></i>营业时间</li>
+				</ul>
+			</div>
+			<div class="home-radio-clock-right">
+				<ul>
+					<li>海科路东段99号 <span>成都师范学院</span></li>
+					<li class="lst">(012) 123-456-78</li>
+					<li>(012) 123-456-78<span>周一-周五:</span><span>09h-17h</span></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		
+		<div class="com" style="margin-top: 50px;"> 
+			<h3>我的反馈</h3>
+			<ul class="media-list">
+			   
+			    #for(ls:plist.list??)
+			    <hr>
+				<li class="media">										
+					<div class="media-body">
+						<h4 class="media-heading">#(ls.contact_title??)</h4>
+						#(ls.contact_content??) <a >#date(ls.contact_date??)</a>
+						<br>
+						<h5>回复：#(ls.contact_replay??)</h5>
+					</div>
+				</li>
+				#end
+				
+				
+			</ul>
+		</div>
+				
+	</div>
+</div>
+
+#end

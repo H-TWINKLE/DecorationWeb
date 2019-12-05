@@ -1,0 +1,45 @@
+ #@_layout() #define _body()
+
+<div class="contact">
+	<div class="container">
+		<h3>发布帖子</h3>
+		<div class="row">
+		<div class="contact-us1-bottom col-lg-12" style="width: 100%">
+			<form method="post" action="#(base)/luntan/addPost">
+				<input class="form-control" name="p.post_title" placeholder="请填写标题" required="required">
+				<textarea class="form-control" placeholder="请填写内容" required=" " name="p.post_content"></textarea>
+				<input type="submit" value="评论">
+				<div class="clearfix"></div>
+			</form>
+			<div class="com  col-lg-12">
+				<h3 style="margin-top: 50px;">我发布的帖子</h3>
+				<ul class="media-list" style="width: 100%">
+
+					#for(ls:plist.list??)
+					<hr>
+					<li class="media">
+						<div class="media-left">
+							<a href="#"> <img class="media-object img-responsive"
+								style="width: 70px; height: 70px; border-radius: 100%; overflow: hidden;"
+								src="#(base)#(ls.user_pic??)" alt="" />
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">#(ls.user_account??)</h4>
+							<a style="margin: auto;text-align: left;color: black;" 
+							href="#(base)/luntan/detail?id=#(ls.post_id??)">#(ls.post_title??)</a>
+							 <p style="margin: auto;text-align:right;">#date(ls.post_date??)</p>
+						</div>
+					</li> 
+					#end
+
+				</ul>
+				<hr>
+				#@_pagenation()
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+#end

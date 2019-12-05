@@ -1,0 +1,40 @@
+ #@_layout()
+ 
+  #define _body()
+
+<link rel="stylesheet" href="#(base)/assets/css/swipebox.css">
+
+<div class="gallery">
+	<div class="container">
+		<h3>风格详细</h3>
+		<div class="top-gallery">
+			<h2 style="margin-bottom: 30px">#(fengge.fengge_title??)</h2>
+			#(fengge.fengge_content??)
+		</div>
+		#for(li:fengge.listPic??)
+		#if(for.count<5)
+		<div class="col-md-3 gallery-grid gallery1">
+			<a href="#('http'.contains(li??)?li??:base+li??)" class="swipebox">
+				<img style="width: 300px;height: 200px"
+
+				src="#('http'.contains(li??)?li??:base+li??)" class="img-responsive" alt="/">
+			</a>
+		</div>
+		#end
+		#end
+		
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<script src="#(base)/assets/js/jquery.swipebox.min.js"></script>
+<script type="text/javascript">
+	jQuery(function($) {
+		$(".swipebox").swipebox();
+	});
+</script>
+</div>
+</div>
+
+#end

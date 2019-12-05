@@ -1,0 +1,72 @@
+#define _layout()
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html class="no-js" id="page-login">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>#(title??)</title>
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="#(base)/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="#(base)/assets/css/animate.css">
+    <link rel="stylesheet" href="#(base)/assets/css/spop.css">
+    <link rel="stylesheet" href="#(base)/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+
+    <script src="#(base)/assets/js/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript">
+        var msgTip = "#(tip_msg??)"
+    </script>
+
+</head>
+<body>
+
+#@_main()
+
+
+<script src="#(base)/assets/js/bootstrap.min.js"></script>
+<script src="#(base)/assets/js/spop.js"></script>
+
+<script type="text/javascript">
+    if (msgTip != null && msgTip != "") {
+
+        spop({
+            template: msgTip,
+            autoclose: 3000
+        });
+
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var url = window.location.pathname;
+
+        var li = $("#head-menu").find("[href]");
+
+        for (var i = 0; i < li.length; i++) {
+
+            var l = li.eq(i).attr('href').toString();
+            var text = l.substr(0, l.length - 1);
+
+            if (url.indexOf(text) != -1) {
+                li.eq(i).parents("li").addClass('active');
+
+            }
+
+        }
+
+    });
+</script>
+
+
+</body>
+</html>
+#end

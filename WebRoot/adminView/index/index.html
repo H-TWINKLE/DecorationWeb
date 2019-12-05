@@ -1,0 +1,78 @@
+ #@_adminLayout() #define _adminMain()
+
+
+
+
+<header class="page-header">
+	<div class="container-fluid">
+		<h2 class="no-margin-bottom">用户信息</h2>
+	</div>
+</header>
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#(base)/admin">主页</a></li>
+		<li class="breadcrumb-item active">用户信息</li>
+	</ul>
+</div>
+<section class="tables">
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-lg-12">
+				<div class="card">
+					<!-- <div class="card-close">
+						<div class="dropdown">
+
+							<a href="#(base)/admin/editUser" class="dropdown-toggle"> <i
+								class="fa fa-ellipsis-v"></i>&nbsp;新增
+							</a>
+
+						</div>
+					</div> -->
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h4">用户列表</h3>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>用户账号</th>
+										<th>用户昵称</th>
+										<th>身份</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#for(li:plist.list??)
+									<tr>
+
+										<th scope="row">#(li.user_account??)</th>
+										<td>#(li.user_name??)</td>
+										<td>#(li.user_plate==2?"管理员":"用户")</td>
+										<td>#date(li.user_dates??)</td>
+										<td><a class="badge badge-rounded bg-green"
+											href="#(base)/admin/editUser?user_id=#(li.user_id)">查看</a> <a
+											class="badge badge-rounded bg-blue"
+											href="#(base)/admin/editUser?user_id=#(li.user_id)">修改</a> <a
+											class="badge badge-rounded bg-red"
+											href="#(base)/admin/deleteUser?user_id=#(li.user_id)">删除</a>
+										</td>
+									</tr>
+									#end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				#@_pagenation()
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+#end

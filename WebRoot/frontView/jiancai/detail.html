@@ -1,0 +1,46 @@
+#@_layout()
+
+#define _body()
+
+<link rel="stylesheet" href="#(base)/assets/css/swipebox.css">
+
+<div class="gallery">
+	<div class="container">
+		<h3>建材详细</h3>
+		<div class="top-gallery">
+			<h2 style="margin-bottom: 30px">#(jiancai.jiancai_title??)</h2>
+			#(jiancai.jiancai_auto??)
+		</div>
+
+
+		<div class="col-md-12 gallery-grid gallery1">
+			<a href="#('http'.contains(jiancai.jiancai_pic??)?jiancai.jiancai_pic??:base+jiancai.jiancai_pic??)" class="swipebox">
+				<img style="width: 300px;height: 200px"
+
+					 src="#('http'.contains(jiancai.jiancai_pic??)?jiancai.jiancai_pic??:base+jiancai.jiancai_pic??)" class="img-responsive" alt="/">
+			</a>
+		</div>
+
+
+		<div class="col-md-12" style="margin: 0 auto;text-align: center;margin-top: 50px;">
+			<a href="#(jiancai.jiancai_url??)"><span style="color: red;margin-right: 20px;">#(jiancai.jiancai_price??)</span>前往购买</a>
+		</div>
+
+
+
+
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<script src="#(base)/assets/js/jquery.swipebox.min.js"></script>
+<script type="text/javascript">
+	jQuery(function($) {
+		$(".swipebox").swipebox();
+	});
+</script>
+</div>
+</div>
+
+#end

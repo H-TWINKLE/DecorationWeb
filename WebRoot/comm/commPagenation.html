@@ -1,0 +1,33 @@
+#define _pagenation()
+
+<div class="hr"></div>
+
+<link rel="stylesheet" href="#(base)/assets/css/myPagination.css">
+
+<div class="text-center" style="margin-bottom: 100px;position: relative;z-index: 999">
+	<div id="pagination" class="pagination"></div>
+</div>
+
+<script src="#(base)/assets/js/myPagination.js"></script>
+<script>
+	window.onload = function() {
+		new Page({
+			id : 'pagination',
+			pageTotal : '#(plist.totalPage?? 0)',  //必填,总页数  
+			pageAmount : '#(plist.pageSize?? 0)', //每页多少条
+			dataTotal : '#(plist.totalRow?? 0)', //总共多少条数据
+			curPage : '#(plist.pageNumber??1)', //初始页码,不填默认为1
+			pageSize : 5, //分页个数,不填默认为5
+			showPageTotalFlag : true, //是否显示数据统计,不填默认不显示
+			showSkipInputFlag : true, //是否支持跳转,不填默认不显示
+			getPage : function(pages) {
+				
+				window.location.href = '#(base)#(action)pages='+pages;
+
+			}
+		})
+
+	}
+</script>
+
+#end

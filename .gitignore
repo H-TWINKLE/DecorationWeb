@@ -1,0 +1,3 @@
+# Project exclude paths
+/out/
+/WebRoot/WEB-INF/classes/

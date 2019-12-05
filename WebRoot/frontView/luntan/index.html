@@ -1,0 +1,27 @@
+ #@_layout() #define _body()
+<div class="history">
+	<div class="container">
+		<div class="col-md-12 history-left">
+			<h2 style="margin-bottom: 20px;"><strong>论坛</strong><a href="#(base)/luntan/myPost" style="float: right;">发布帖子</a></h2>
+			
+			#for(li:plist.list??)
+			<div class="history-left-grid">
+				<p>
+			
+					<i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>#date(li.post_date??)
+				</p>
+				<a href="#(base)/luntan/detail?id=#(li.post_id??)">#(li.post_title??)</a>
+				<p class="aut">#(li.user_account??).</p>
+			</div>
+			<hr>
+			#end
+			
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+#@_pagenation()
+
+#end

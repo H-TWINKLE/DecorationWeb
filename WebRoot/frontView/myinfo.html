@@ -1,0 +1,60 @@
+ #@_layout() #define _body()
+<div class="about">
+	<div class="container">
+		<h3>个人信息</h3>
+
+		<div class="in dfg">			
+			<form class="form-horizontal" method="post"
+							action="#(base)/updateInfo" enctype="multipart/form-data">
+
+							<input hidden="hidden" name="user.user_id"
+								value="#(session.my_user.user_id??)">
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">用户账号</label>
+								<div class="col-sm-9">
+									<input value="#(session.my_user.user_account??)" disabled="disabled"
+										type="text" class="form-control">
+								</div>
+							</div>
+							<div class="line"></div>
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">用户昵称</label>
+								<div class="col-sm-9">
+									<input type="text" value="#(session.my_user.user_name??)" name="user.user_name"
+										class="form-control">
+								</div>
+							</div>
+							<div class="line"></div>
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">用户邮箱</label>
+								<div class="col-sm-9">
+									<input type="email" value="#(session.my_user.user_email??)" name="user.user_email"
+										class="form-control">
+								</div>
+							</div>
+							<div class="line"></div>
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">用户头像</label>
+								<div class="col-sm-9">
+									<img src="#(base)#(session.my_user.user_pic??)" width="50%"> <input
+										id="fileInput" name="file" type="file" class="form-control-file">
+								</div>
+							</div>
+							<div class="line"></div>
+
+						<div class="form-group row">
+								<div class="col-sm-4 offset-sm-3">
+									<button type="submit" class="btn btn-primary">保存</button>
+								</div>
+							</div>
+						</form>
+		</div>
+
+	</div>
+</div>
+
+#@_pagenation() #end

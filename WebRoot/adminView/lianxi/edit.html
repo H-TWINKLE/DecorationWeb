@@ -1,0 +1,79 @@
+ #@_adminLayout() #define _adminMain()
+
+
+
+
+<header class="page-header">
+	<div class="container-fluid">
+		<h2 class="no-margin-bottom">联系回复</h2>
+	</div>
+</header>
+
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#(base)/admin">主页</a></li>
+		<li class="breadcrumb-item active">联系回复</li>
+	</ul>
+</div>
+
+<section class="forms">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h4">联系回复</h3>
+					</div>
+					<div class="card-body">
+						<form class="form-horizontal" method="contact"
+							action="#(base)/a/lianxi/update">
+
+							<input hidden="hidden" name="contact.contact_id"
+								value="#(contact.contact_id??)">							
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">联系标题</label>
+								<div class="col-sm-9">
+									<input type="text" value="#(contact.contact_title??)" disabled="disabled"
+										name="contact.contact_title" class="form-control">
+								</div>
+							</div>
+							<div class="line"></div>
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">联系内容</label>
+								<div class="col-sm-9">
+									<textarea disabled="disabled"
+											  name="contact.contact_content"
+											  class="form-control">#(contact.contact_content??)</textarea>
+								</div>
+							</div>
+							<div class="line"></div>
+
+							<div class="form-group row">
+								<label class="col-sm-3 form-control-label">回复信息</label>
+								<div class="col-sm-9">
+									<textarea type="text" cols="5" rows="5"
+											  name="contact.contact_replay"
+											  class="form-control">#(contact.contact_replay??)</textarea>
+								</div>
+							</div>
+							<div class="line"></div>																				
+
+							<div class="form-group row">
+								<div class="col-sm-4 offset-sm-3">
+									<button type="submit" class="btn btn-primary">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+#end

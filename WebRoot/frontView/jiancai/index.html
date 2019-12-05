@@ -1,0 +1,31 @@
+ #@_layout() #define _body()
+<div class="gallery">
+	<div class="container">
+		<div class="top-gallery">
+			<h3 style="margin-bottom: 20px;">建材</h3>
+
+			#for(li:plist.list??)
+			<div class="col-md-4 gallery-grid gallery1">
+				<a href="#('http'.contains(li.loadPic??)?li.loadPic??:base+li.loadPic??)" class="swipebox"> <img
+					src="#('http'.contains(li.loadPic??)?li.loadPic??:base+li.loadPic??)" class="img-responsive"
+					alt="/" style="width: 300px;height: 200px;">
+					<div class="textbox" style="margin-top: 50px;">
+						<h4>#(li.jiancai_title??)</h4>
+						<p>价格 ：#(li.jiancai_price??)</p>
+						<p><a style="color:white;text-decoration:none;" target="_blank" href="#(base)jiancai/detail?id=#(li.jiancai_id??)">查看详细</a></p>
+					</div>
+				</a>
+			</div>
+
+			#if(for.count%3==0)
+			<div class="clearfix"></div>
+			#end
+			#end
+		</div>
+	</div>
+</div>
+
+#@_pagenation()
+
+
+#end

@@ -1,0 +1,187 @@
+#define _adminLayout()
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>#(title??)</title>
+    <meta name="referrer" content="never">
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet"
+          href="#(base)/adminAssets/vendor/bootstrap/css/bootstrap.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet"
+          href="#(base)/adminAssets/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="#(base)/adminAssets/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="#(base)/adminAssets/css/style.default.css"
+          id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="#(base)/adminAssets/css/custom.css">
+
+    <link rel="stylesheet" href="#(base)/assets/css/spop.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="#(base)/adminAssets/img/favicon.ico">
+
+    <script src="#(base)/adminAssets/vendor/jquery/jquery.min.js"></script>
+
+    <script src="#(base)/adminAssets/vendor/bootstrap/js/bootstrap.js"></script>
+
+   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>-->
+
+    <script type="text/javascript">
+        var msgTip = "#(tip_msg??)"
+    </script>
+
+</head>
+<body>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+
+            <div class="container-fluid">
+                <div
+                        class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand -->
+                        <a href="#(base)/index"
+                           class="navbar-brand d-none d-sm-inline-block">
+                            <div class="brand-text d-none d-lg-inline-block">
+                                <span>管理员 </span><strong>易家</strong>
+                            </div>
+                            <div class="brand-text d-none d-sm-inline-block d-lg-none">
+                                <strong>易家</strong>
+                            </div>
+                        </a>
+                        <!-- Toggle Button-->
+                        <a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                    <!-- Navbar Menu -->
+                    <ul
+                            class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <!-- Logout    -->
+                        <li class="nav-item"><a href="#(base)/logOut"
+                                                class="nav-link logout"> <span class="d-none d-sm-inline">退出登录</span><i
+                                class="fa fa-sign-out"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar">
+                    <img src="#(base)#(session.my_user.user_pic??)" alt="..."
+                         class="img-fluid rounded-circle">
+                </div>
+                <div class="title">
+                    <h1 class="h4">#(session.my_user.user_account??)</h1>
+                    <p>#(session.my_user.user_email??)</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus-->
+            <span class="heading">管理员</span>
+            <ul class="list-unstyled">
+                <li><a href="#(base)/admin"> <i
+                        class="icon-home"></i>用户管理
+                </a></li>
+                <li><a href="#(base)/a/jiaju"> <i class="icon-grid"></i>家居管理
+                </a></li>
+                <li><a href="#(base)/a/jiancai"> <i
+                        class="fa fa-bar-chart"></i>建材管理
+                </a></li>
+                <li><a href="#(base)/a/fengge"> <i
+                        class="icon-padnote"></i>风格管理
+                </a></li>
+                <li><a href="#(base)/a/luntan"> <i
+                        class="icon-padnote"></i>论坛管理
+                </a></li>
+                <li><a href="#(base)/a/lianxi"> <i
+                        class="icon-padnote"></i>用户联系
+                </a></li>
+            </ul>
+        </nav>
+        <div class="content-inner">
+
+            #@_adminMain()
+
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Yi Decoration &copy; 2017-2019</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<!-- JavaScript files-->
+<!--<script src="#(base)/adminAssets/vendor/bootstrap/js/bootstrap.min.js"></script>-->
+
+
+<script
+        src="#(base)/adminAssets/vendor/jquery-validation/jquery.validate.min.js"></script>
+
+<!-- Main File-->
+<script src="#(base)/adminAssets/js/front.js"></script>
+
+<!--<script src="#(base)/adminAssets/js/summernote.js"></script>
+
+<script src="#(base)/adminAssets/js/summernote-bs4.js"></script>-->
+
+<script src="#(base)/adminAssets/js/summernote-lite.js"></script>
+
+<script src="#(base)/assets/js/spop.js"></script>
+
+<script type="text/javascript">
+    if (msgTip != null && msgTip != "") {
+
+        spop({
+            template: msgTip,
+            autoclose: 3000
+        });
+
+    }
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var url = window.location.pathname;
+
+        var li = $(".list-unstyled").find("[href]");
+
+        for (var i = 0; i < li.length; i++) {
+
+            var l = li.eq(i).attr('href').toString();
+            var text = l.substr(0, l.length - 1);
+
+            if (url.indexOf(text) != -1) {
+                li.eq(i).parents("li").addClass('active');
+
+            }
+
+        }
+
+    });
+</script>
+</body>
+</html>
+#end

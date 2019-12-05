@@ -1,0 +1,80 @@
+ #@_adminLayout() #define _adminMain()
+
+
+
+
+<header class="page-header">
+	<div class="container-fluid">
+		<h2 class="no-margin-bottom">建材管理</h2>
+	</div>
+</header>
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#(base)/admin">主页</a></li>
+		<li class="breadcrumb-item active">建材管理</li>
+	</ul>
+</div>
+<section class="tables">
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-close">
+						<div class="dropdown">
+
+							<a href="#(base)/a/jiancai/edit" class="dropdown-toggle"> <i
+								class="fa fa-ellipsis-v"></i>&nbsp;新增
+							</a>
+
+						</div>
+					</div>
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h4">建材列表</h3>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>图片</th>
+										<th>标题</th>
+										<th>价格</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#for(li:plist.list??)
+									<tr>
+										<td style="vertical-align: middle;"><img alt=""
+											src="#('http'.contains(li.jiancai_pic??)?li.jiancai_pic??:base+li.jiancai_pic??)" style="width: 100px; margin: auto;">
+										</td>
+										<td style="vertical-align: middle;">#(li.jiancai_title??)</td>
+										<td style="vertical-align: middle;">#(li.jiancai_price??)元</td>
+										<td style="vertical-align: middle;">#date(li.jiancai_date??)</td>
+										<td style="vertical-align: middle;"><a
+											class="badge badge-rounded bg-green"
+											href="#(base)/a/jiancai/edit?id=#(li.jiancai_id)">查看</a> <a
+											class="badge badge-rounded bg-blue"
+											href="#(base)/a/jiancai/edit?id=#(li.jiancai_id)">修改</a> <a
+											class="badge badge-rounded bg-red"
+											href="#(base)/a/jiancai/delete?id=#(li.jiancai_id)">删除</a></td>
+									</tr>
+									#end
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				#@_pagenation()
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+#end

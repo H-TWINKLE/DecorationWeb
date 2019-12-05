@@ -1,0 +1,79 @@
+ #@_adminLayout() #define _adminMain()
+
+
+
+
+<header class="page-header">
+	<div class="container-fluid">
+		<h2 class="no-margin-bottom">论坛管理</h2>
+	</div>
+</header>
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#(base)/admin">主页</a></li>
+		<li class="breadcrumb-item active">论坛管理</li>
+	</ul>
+</div>
+<section class="tables">
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-close">
+						<div class="dropdown">
+
+							<a href="#(base)/a/luntan/edit" class="dropdown-toggle"> <i
+								class="fa fa-ellipsis-v"></i>&nbsp;新增
+							</a>
+
+						</div>
+					</div>
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h4">论坛列表</h3>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+									    
+										<th>标题</th>
+										<th>作者</th>
+										<th>热门程度</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#for(li:plist.list??)
+									<tr>										
+										<td style="vertical-align: middle;">#(li.post_title??)</td>
+										<td style="vertical-align: middle;">#(li.user_account??)</td>
+										<td style="vertical-align: middle;">#(li.post_hot??)</td>
+										<td style="vertical-align: middle;">#date(li.post_date??)</td>
+										<td style="vertical-align: middle;"><a
+											class="badge badge-rounded bg-green"
+											href="#(base)/a/luntan/edit?id=#(li.post_id)">查看</a> <a
+											class="badge badge-rounded bg-blue"
+											href="#(base)/a/luntan/edit?id=#(li.post_id)">修改</a> <a
+											class="badge badge-rounded bg-red"
+											href="#(base)/a/luntan/delete?id=#(li.post_id)">删除</a></td>
+									</tr>
+									#end
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				#@_pagenation()
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+#end
